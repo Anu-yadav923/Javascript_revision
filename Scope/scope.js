@@ -10,3 +10,14 @@ if(true){
 
     console.log(a,b,c);
 }
+
+//console.log(magic);
+//var magic = "I am hoisted";
+
+/*const person = {
+    name:"jane"
+}
+const person = {
+    name:"rose"
+}
+console.log(person.name); */
