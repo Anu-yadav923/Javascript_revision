@@ -178,3 +178,38 @@ console.log([] + {}); // [object Object]
 console.log({} + []); // [object Object]
 console.log([] + []); // ""
 console.log(2 + 3 - "5" + 2);
+
+if("0"){
+    console.log("True because not an empty string");
+}
+
+if(0){
+    console.log("wont't run cause its falsein Boolean");
+}
+
+// == vs === vs Object.is()
+console.log(0 == false); //true
+console.log(0 === false); //false
+
+console.log("" == false) //true
+console.log("" === false) // false
+
+console.log(null == undefined) // true, (cause null and undefined both gives false when converted to Boolean)
+console.log(null === undefined) //false
+
+console.log(NaN == NaN) // false, (NaN can never be equal to anything , even with itself)
+
+
+console.log(Object.is(NaN, NaN)); // true(Object.is() also doesn't perform type coercion and is mostly like ===, but it differs for two special cases: Object.is(NaN, NaN) is true, while NaN === NaN is false; and Object.is(+0, -0) is false, while +0 === -0 is true.)
+
+console.log(0 === -0) // true
+console.log(Object.is(0, -0)) // false
+
+console.log([] == ![]) // true
+/* INTERVIEW QUESTION
+[] == ![]
+[] == !true
+[] == false
+String([]) == false
+false == false
+trueeeeee!!!!!*/    
