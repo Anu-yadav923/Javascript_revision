@@ -213,3 +213,19 @@ console.log([] == ![]) // true
 String([]) == false
 false == false
 trueeeeee!!!!!*/    
+
+// FOR OBJECTS AND ARRAYS, "== "AND "===" COMPARED BY REFERENCE NOT BY VALUES
+console.log([] == []) //false
+//console.log([] === []) 
+console.log({} == {}) //false
+//console.log({} == {}); //false
+
+const a = [];
+const b = a;
+console.log(a == b);
+
+const value = undefined ?? 0;
+console.log(value);
+
+const value2 = undefined || 0;
+console.log(value2);
