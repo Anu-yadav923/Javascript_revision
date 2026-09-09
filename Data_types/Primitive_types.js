@@ -229,3 +229,89 @@ console.log(value);
 
 const value2 = undefined || 0;
 console.log(value2);
+
+
+console.log(1 + "2" + 3);        // ? 123
+console.log(1 + 2 + "3");        // ? 33
+console.log("1" + 2 + 3);        // ? 123
+console.log("1" - 2 + 3);        // ? 2
+console.log("1" - "2" - "3");    // ?-4
+console.log("1" * "2" + "3");    // ? "2" + "3" == 23
+console.log(1 + 2 * "3");        // ? 7
+console.log("5" + 3 - 2);        // ?51
+console.log(0 == "");            // ? true
+console.log(0 == "0");           // ? true
+console.log(false == "");        // ? true
+console.log(false == "0");       // ? true
+console.log(null == undefined);  // ? true
+console.log(NaN === NaN);         // ? false
+console.log(Object.is(NaN,NaN))  // true
+console.log(Object.is(1, -1)); //false
+console.log(1 == -1); //false
+console.log(0 === -0); //true;
+console.log(1 === -0);//false
+
+
+ function solve(item){
+     let total = 0;
+    for(let i = 0; i < item.length; i++){
+        total = total + item[i] * 1;
+    }
+    return total;
+ }
+
+console.log(solve([10,"20",30]));
+
+function getType(val){
+    if(val == null){
+        return null;
+    }
+
+    if(Array.isArray(val)){
+        return "Array";
+    }
+    return typeof(val);
+}
+console.log(getType(3));
+console.log(getType("hello"));
+console.log(getType(null));
+console.log(getType([2,4]));
+console.log(getType({}))
+console.log(getType(()=>{}))
+
+
+function boolean(values){
+    const result = {
+        truthy : [],
+        falsy : []
+    }
+
+    for(let i = 0; i < values.length; i++){
+         if(Boolean(values[i]) == true){
+        result.truthy.push = values[i];
+    } else {
+        result.falsy.push= values[i];
+    }
+    }
+
+   return result;
+}
+
+console.log(boolean(values = [
+    0,    // false
+    "0",  //true
+    "",   //false
+    " ",  // true
+    [],   // true
+    {},   // true
+    null, //false
+    undefined,  // false
+    NaN,      // false
+    false,   // false
+    true,    // true
+    -1,      //true
+    "false",  //true
+    "null",   // true
+    [1,2],    // true
+    {name: "John"} // true
+]));
