@@ -279,25 +279,7 @@ console.log(getType([2,4]));
 console.log(getType({}))
 console.log(getType(()=>{}))
 
-
-function boolean(values){
-    const result = {
-        truthy : [],
-        falsy : []
-    }
-
-    for(let i = 0; i < values.length; i++){
-         if(Boolean(values[i]) == true){
-        result.truthy.push = values[i];
-    } else {
-        result.falsy.push= values[i];
-    }
-    }
-
-   return result;
-}
-
-console.log(boolean(values = [
+const values = [
     0,    // false
     "0",  //true
     "",   //false
@@ -314,4 +296,53 @@ console.log(boolean(values = [
     "null",   // true
     [1,2],    // true
     {name: "John"} // true
-]));
+];
+
+function boolean(values){
+    const result = {
+        truthy : [],
+        falsy : []
+    }
+
+    values.forEach(value => {
+        if(Boolean(value)){
+            result.truthy.push(value);
+        } else {
+            result.falsy.push(value);
+        }
+    });
+
+   return result;
+}
+console.log(boolean(values));
+
+console.log(typeof typeof 1);
+
+// checking a number is valid or not
+function isValidNumber(value){
+    return typeof value === "number" && !isNaN(value);
+}
+console.log(isValidNumber(5));
+console.log(isValidNumber(NaN));
+
+// SHALLOW AND DEEP COPY----
+
+let personn = {
+    name : "Anu",
+    address: {
+        city: "seoul",
+        PIN : 2799
+    }
+};
+
+const personn1 = {...personn};
+
+console.log(personn1.address.PIN = 2111);
+console.log(personn);
+console.log(personn1);
+
+const personn2 = structuredClone(personn);
+
+console.log(personn2.address.city = "sweden");
+console.log(personn);
+console.log(personn2);
