@@ -273,4 +273,35 @@ function outer() {
 outer();
 
 console.log (b);
-let b = 10;
+var b = 10;
+
+// HOISTING
+console.log(namee);
+var namee = "Anu";
+
+
+// console.log(sayhii);
+// const sayhii = () => console.log("hiiii");
+
+// console.log(typeof flowerr);
+// console.log( flowerr);
+// var flowerr;
+
+function counterr() {
+    let count = 0;
+
+    return function() {
+        count++;
+        return count;
+    }
+    
+}
+
+const counter1 = counterr();
+const counter2 = counterr();
+
+console.log(counter1());
+console.log(counter1());
+console.log(counter2());
+console.log(counter1());
+console.log(counter2());
