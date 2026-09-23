@@ -305,3 +305,32 @@ console.log(counter1());
 console.log(counter2());
 console.log(counter1());
 console.log(counter2());
+
+function showargs(){
+    console.log(Array. from(arguments));
+}
+
+showargs([3], [4,5,6]);
+showargs("a,b,c")
+
+function showthis(age, name){
+    this.age = age;
+    this.name = name;
+    console.log(this);
+}
+const a = new showthis(22, "Anu");
+const bb = new showthis(20, "alice");
+
+const objj = {
+    name : "Anu",
+    greet : () => console.log(this.name),
+    greet1 : function () {
+        console.log(this.name);
+        this.innergreet =  () => console.log(this.name);
+    }
+
+}
+objj.greet();
+objj.greet1();
+objj.innergreet();
+console.log(objj);
