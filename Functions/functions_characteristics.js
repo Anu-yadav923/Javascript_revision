@@ -367,3 +367,56 @@ for(var i = 0; i < 3; i++){
 nums3[0]();
 nums3[1]();
 nums3[2]();
+
+// SAME VAR NAME AND FUNCTION NAME 
+
+console.log(typeof foo1); // when hoisting the function will be prioritized
+var foo1 = "Anu";
+function foo1(){
+    return "function"
+};
+console.log(typeof foo1); // here the variable assigment are prioritized
+
+// for(var i = 1; i <= 3; i++){
+//     (function(j){
+//        setTimeout(function() { //settimeout calls the function aget 1sec
+//         console.log(j);
+//        },1000);
+//     }(i));
+// }
+
+// for(var i = 1; i <= 3; i++){
+//     setTimeout(console.log.bind(null, i),1000); // bind() creates a function and tells it to remeber the value of i at the time of creation
+// }
+
+// 
+function maxNum(...nums){
+   console.log(Math.max(...nums));
+}
+maxNum(1,2,3,45,5);
+
+// CURRYING----------
+function add(a){
+    return function(b){
+        return function(c){
+            return a + b + c;
+        }
+    }
+}
+console.log(add(2)(3)(5));
+
+function sendAutoEmails(to){
+    return function (subjects){
+        return function(body){
+            return `To  :${to} subject : ${subjects} body : ${body}`;
+        }
+    }
+}
+
+console.log(sendAutoEmails("rasihd") ("submision delay") ("two days delay"));
+
+const sendAutoEmail1 = (to) => (subjects) => (body) => console.log( `to : ${to} subjects : ${subjects} body: ${body}`
+)
+const steps1 = sendAutoEmail1("anu@gmail.com");
+const steps2 = steps1("micro1 interview practise");
+steps2("lets do our best");
