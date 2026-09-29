@@ -420,3 +420,42 @@ const sendAutoEmail1 = (to) => (subjects) => (body) => console.log( `to : ${to} 
 const steps1 = sendAutoEmail1("anu@gmail.com");
 const steps2 = steps1("micro1 interview practise");
 steps2("lets do our best");
+
+function multiply(a){
+    return function(b){
+        return a*b;
+    }
+};
+const double = multiply(2);
+const triple = multiply(3);
+
+console.log(double(5));
+console.log(triple(10));
+
+function add(a){
+    return function(b){
+        if(b == undefined) return a;
+        return add(a+b);
+    }
+};
+console.log(add(2)(3)(4)(8)(7)(9)());
+
+//
+function createCounter(){
+    let count = 0;
+    return {
+         increment() {return ++count;},
+         decrement() {return --count;},
+         reset() {count = 0; return count;},
+         getcount() {return count}
+    };
+}
+const counterrr = createCounter();
+console.log(counterrr.increment);
+console.log(counterrr.increment());
+console.log(counterrr.increment());
+console.log(counterrr.decrement());
+console.log(counterrr.getcount());
+console.log(counterrr.reset());
+console.log(counterrr.getcount());
+console.log(counterrr.count);
