@@ -459,3 +459,24 @@ console.log(counterrr.getcount());
 console.log(counterrr.reset());
 console.log(counterrr.getcount());
 console.log(counterrr.count);
+
+//
+function once(fn){
+    let called = false;
+    let result;
+
+    return (...args) => {
+        if(!called) {
+            called = true;
+            result = fn.apply(this, args);
+        }
+        return result;
+    }
+}
+const initialize = once(() => {
+    console.log("initializing...");
+    return "done!"
+});
+console.log(initialize());
+console.log(initialize());
+console.log(initialize());
