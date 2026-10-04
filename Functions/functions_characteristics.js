@@ -531,3 +531,23 @@ function fn(){
     console.log(this);
 }
 fn();
+
+// 
+
+const personnn = {
+    name : "Anu"
+};
+
+function greet(greeting, punctuation){
+    console.log(`${greeting}, ${this.name} ${punctuation}`);
+}
+
+// call
+greet.call(personnn, "Hey", "!");
+
+// apply
+greet.apply(personnn, ["hey", "!!"]);
+
+//bind
+const bindNewGreet = greet.bind(personnn, "Heyy");
+bindNewGreet("!");
